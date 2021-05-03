@@ -401,6 +401,8 @@ class BaseModel(Representation, metaclass=ModelMetaclass):
     if TYPE_CHECKING:
         # populated by the metaclass, defined here to help IDEs only
         __fields__: ClassVar[Dict[str, ModelField]] = {}
+        __include_fields__: ClassVar[Optional[Mapping[str, Any]]] = None
+        __exclude_fields__: ClassVar[Optional[Mapping[str, Any]]] = None
         __validators__: ClassVar[Dict[str, AnyCallable]] = {}
         __pre_root_validators__: ClassVar[List[AnyCallable]]
         __post_root_validators__: ClassVar[List[Tuple[bool, AnyCallable]]]
